@@ -1,0 +1,260 @@
+<script setup lang="ts">
+import { useMediaQuery } from '@vueuse/core'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+
+import BaseIconMenu from '@/components/base/icon-menu/BaseIconMenu.vue'
+import TheHeaderMenuToggle from '@/components/the-header/TheHeaderMenuToggle.vue'
+import TheThemeToggle from '@/components/the-theme-toggle/TheThemeToggle.vue'
+import { useLockScroll } from '@/composables/useLockScroll'
+import { useScrollSpy } from '@/composables/useScrollSpy'
+import { appConfig } from '@/config/app'
+
+interface TheHeaderProps {
+  routes: Array<RouteItem>
+  langs: Array<MenuItem>
+  selectedLangId?: string | null
+}
+
+// Dependencies
+const { lock, unlock } = useLockScroll()
+const { t } = useI18n()
+
+// Input / Output
+const props = withDefaults(defineProps<TheHeaderProps>(), {
+  selectedLangId: null,
+})
+
+const emit = defineEmits<{ (e: 'change-lang', langCode: string): void }>()
+
+// Data
+const open = ref(false)
+const isMdUp = useMediaQuery('(min-width: 768px)')
+const currentRoute = useRoute()
+const { activeId, pin } = useScrollSpy(() => props.routes.flatMap(r => r.sectionIds ?? []))
+
+const isActiveRoute = (r: RouteItem) => {
+  if (r.disabled) {
+    return false
+  }
+  // In-page anchors: the section being read decides, the router only knows the page
+  if (r.sectionIds?.length) {
+    return activeId.value !== null && r.sectionIds.includes(activeId.value)
+  }
+  // Real pages: compare the route name (child routes are named "<parent>-<child>")
+  if (r.routeName) {
+    const name = String(currentRoute.name ?? '')
+    return name === r.routeName || name.startsWith(`${r.routeName}-`)
+  }
+  return currentRoute.path === r.path
+}
+
+// Exactly one item is current: the first match wins, every other item is false
+const activeRoutePath = computed(() => props.routes.find(r => isActiveRoute(r))?.path ?? null)
+
+const currentLang = computed(() =>
+  props.langs.find(l => l.code === props.selectedLangId) ?? props.langs[0] ?? null,
+)
+
+// Events
+const onSelectRoute = (r: RouteItem) => {
+  const sectionId = r.path.split('#')[1]
+  if (sectionId) {
+    pin(sectionId)
+  }
+}
+
+const onKeydown = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') {
+    e.preventDefault()
+    onClose()
+  }
+}
+
+const onToggle = (newOpenValue: boolean) => {
+  open.value = newOpenValue
+  if (open.value) {
+    lock()
+  }
+  else {
+    unlock()
+  }
+}
+
+const onClose = () => {
+  open.value = false
+  unlock()
+}
+
+const onSelectLang = (langCode: string) => {
+  emit('change-lang', langCode)
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', onKeydown)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKeydown)
+  unlock()
+})
+
+watch(isMdUp, (newVal) => {
+  if (newVal && open.value) {
+    onClose()
+  }
+})
+</script>
+
+<template>
+  <div class="relative z-50">
+    <!-- HEADER BAR -->
+    <header
+      class="fixed top-0 inset-x-0 h-16 border-b border-border backdrop-blur px-6 md:px-10 sb-transition"
+      :class="{
+        'bg-bg': open,
+        'bg-bg/80 supports-backdrop-filter:bg-bg/60': !open,
+      }"
+    >
+      <div class="h-full flex items-center max-w-350 mx-auto justify-between gap-4">
+        <!-- Brand -->
+        <RouterLink
+          class="inline-flex items-center gap-2.5 shrink-0 sb-focus sb-transition rounded-sm cursor-pointer group"
+          :to="{ name: 'home' }"
+        >
+          <span
+            class="inline-flex items-center justify-center size-9 md:size-10 rounded-sm
+                   bg-surface-2 border border-border overflow-hidden shrink-0 sb-transition"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="object-contain size-6 md:size-7"
+              fetchpriority="high"
+              height="797"
+              loading="eager"
+              src="/logo.svg"
+              width="682"
+            />
+          </span>
+          <span class="sb-h3 tracking-tight text-ink sb-transition">
+            {{ appConfig.site.name }}
+          </span>
+        </RouterLink>
+
+        <!-- Desktop nav: underline indicator, not a generic pill -->
+        <nav class="hidden md:flex items-center gap-1">
+          <template v-for="r in routes" :key="r.path">
+            <RouterLink
+              v-if="!r.disabled"
+              :aria-current="activeRoutePath === r.path ? 'location' : undefined"
+              class="relative px-3 py-2 cursor-pointer sb-transition sb-focus rounded-sm"
+              :class="activeRoutePath === r.path ? 'text-primary' : 'text-ink-muted hover:text-ink'"
+              :to="r.path"
+              @click="onSelectRoute(r)"
+            >
+              {{ r.name }}
+              <span
+                aria-hidden="true"
+                class="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-primary origin-left transition-transform duration-200"
+                :class="activeRoutePath === r.path ? 'scale-x-100' : 'scale-x-0'"
+              ></span>
+            </RouterLink>
+            <span
+              v-else
+              aria-disabled="true"
+              class="px-3 py-2 sb-body-strong cursor-not-allowed opacity-40 text-ink-muted"
+            >
+              {{ r.name }}
+            </span>
+          </template>
+        </nav>
+
+        <!-- Desktop controls -->
+        <div class="hidden md:flex items-center gap-1 p-1 rounded-sm border border-border bg-surface sb-transition">
+          <TheThemeToggle />
+          <span aria-hidden="true" class="w-px h-5 bg-border mx-0.5"></span>
+          <BaseIconMenu
+            v-if="currentLang"
+            :aria-label="t('header.change-lang')"
+            :icon="currentLang.icon"
+            :items="langs"
+            :selected-item-id="selectedLangId"
+            @select="langCode => onSelectLang(langCode)"
+          />
+        </div>
+
+        <!-- Mobile: hamburger -->
+        <TheHeaderMenuToggle
+          class="md:hidden"
+          :open="open"
+          @toggle="newOpenValue => onToggle(newOpenValue)"
+        />
+      </div>
+    </header>
+
+    <!-- OVERLAY + LATERAL DRAWER (below md) -->
+    <div class="md:hidden">
+      <div
+        aria-hidden="true"
+        class="fixed inset-0 top-16 bg-bg/80 backdrop-blur-sm transition-opacity duration-200"
+        :class="open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
+        @click.stop="onClose()"
+      ></div>
+
+      <aside
+        id="mobile-drawer"
+        :aria-modal="open ? 'true' : undefined"
+        class="fixed left-0 top-16 h-[calc(100dvh-4rem)] w-72 max-w-[85vw] bg-surface border-r border-border shadow-lg transition-transform duration-300 will-change-transform flex flex-col"
+        :class="open ? 'translate-x-0' : '-translate-x-full'"
+        :inert="!open"
+        :role="open ? 'dialog' : undefined"
+      >
+        <div class="px-6 py-4 border-b border-border">
+          <span class="sb-overline text-ink-muted sb-transition">{{ t('header.route-section') }}</span>
+        </div>
+
+        <nav class="flex flex-col gap-1 p-4 flex-1 overflow-y-auto">
+          <template v-for="r in routes" :key="r.path">
+            <RouterLink
+              v-if="!r.disabled"
+              :aria-current="activeRoutePath === r.path ? 'location' : undefined"
+              class="rounded-sm px-4 py-3 sb-body-strong cursor-pointer sb-transition sb-focus"
+              :class="activeRoutePath === r.path
+                ? 'bg-primary text-on-primary font-bold!'
+                : 'text-ink/80 hover:bg-surface-2'"
+              :to="r.path"
+              @click="onSelectRoute(r); onClose()"
+            >
+              {{ r.name }}
+            </RouterLink>
+            <span
+              v-else
+              aria-disabled="true"
+              class="rounded-sm px-4 py-3 sb-body-strong cursor-not-allowed opacity-40 text-ink/70"
+            >
+              {{ r.name }}
+            </span>
+          </template>
+        </nav>
+
+        <div class="px-6 py-3 border-t border-border">
+          <span class="sb-overline text-ink-muted sb-transition">{{ t('header.settings-section') }}</span>
+        </div>
+        <div class="p-4 flex items-center gap-1 border-t border-border">
+          <TheThemeToggle />
+          <span aria-hidden="true" class="w-px h-5 bg-border mx-1"></span>
+          <BaseIconMenu
+            v-if="currentLang"
+            :aria-label="t('header.change-lang')"
+            :icon="currentLang.icon"
+            :items="langs"
+            :selected-item-id="selectedLangId"
+            @select="langCode => onSelectLang(langCode)"
+          />
+        </div>
+      </aside>
+    </div>
+  </div>
+</template>
