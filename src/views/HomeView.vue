@@ -82,6 +82,7 @@ const tokenValues = reactive({
   fontDisplay: '',
   fontBody: '',
   textBody: '',
+  brandStops: [] as string[],
 })
 
 const _readFamily = (value: string): string => value.split(',')[0]?.replace(/["']/g, '').trim() ?? ''
@@ -92,6 +93,8 @@ const _readTokens = () => {
   tokenValues.fontDisplay = _readFamily(styles.getPropertyValue('--font-display'))
   tokenValues.fontBody = _readFamily(styles.getPropertyValue('--font-body'))
   tokenValues.textBody = styles.getPropertyValue('--text-body').trim()
+  tokenValues.brandStops = ['--sb-brand-green', '--sb-brand-purple', '--sb-brand-cyan']
+    .map(name => styles.getPropertyValue(name).trim().toUpperCase())
 }
 
 const specimenRoles = [
@@ -175,7 +178,7 @@ const onExploreComponents = () => {
         <BaseWindowPanel :filename="t('pages.home.hero.panel-filename')">
           <div class="grid grid-cols-6 gap-2 mb-4">
             <div class="aspect-square rounded-sm border border-border bg-primary"></div>
-            <div class="aspect-square rounded-sm border border-border bg-primary-hover"></div>
+            <div class="aspect-square rounded-sm border border-border bg-accent"></div>
             <div class="aspect-square rounded-sm border border-border bg-success"></div>
             <div class="aspect-square rounded-sm border border-border bg-warning"></div>
             <div class="aspect-square rounded-sm border border-border bg-error"></div>
@@ -188,6 +191,20 @@ const onExploreComponents = () => {
               {{ t('pages.home.hero.token-lines.accent') }}
             </span>
             <span class="text-ink font-semibold">{{ tokenValues.primary }}</span>
+          </div>
+          <!-- Brand moment: the logo gradient, shown as a token and never used on controls -->
+          <div class="flex items-center justify-between gap-4 py-2 border-t border-border sb-small text-ink-muted">
+            <span class="flex items-center gap-2">
+              <span aria-hidden="true" class="w-6 h-2.5 rounded-sm shrink-0 bg-brand-gradient"></span>
+              {{ t('pages.home.hero.token-lines.brand') }}
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span aria-hidden="true" class="size-2.5 rounded-full bg-brand-green"></span>
+              <span aria-hidden="true" class="size-2.5 rounded-full bg-brand-purple"></span>
+              <span aria-hidden="true" class="size-2.5 rounded-full bg-brand-cyan"></span>
+              <span aria-hidden="true" class="size-2.5 rounded-full bg-brand-yellow"></span>
+              <span class="sr-only">{{ tokenValues.brandStops.join(' → ') }}</span>
+            </span>
           </div>
           <div class="flex items-center justify-between py-2 border-t border-border sb-small text-ink-muted">
             <span>{{ t('pages.home.hero.token-lines.font-primary') }}</span>

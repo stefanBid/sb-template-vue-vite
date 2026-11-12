@@ -40,9 +40,14 @@
     height: auto;
   }
 
+  /* The logo's yellow T as a highlighter: selection and <mark> share it */
   ::selection {
-    background-color: var(--sb-primary);
-    color: var(--sb-on-primary);
+    background-color: var(--sb-highlight);
+    color: var(--sb-on-highlight);
+  }
+
+  mark {
+    @apply bg-highlight text-on-highlight rounded-[0.2em] px-[0.15em];
   }
 
   /* Scrollbar (webkit only, subtle) */

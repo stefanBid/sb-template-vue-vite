@@ -60,10 +60,10 @@ const props = withDefaults(defineProps<TheFooterProps>(), {
                 alt=""
                 aria-hidden="true"
                 class="object-contain size-6 sm:size-7"
-                height="797"
+                height="796"
                 loading="lazy"
                 src="/logo.svg"
-                width="682"
+                width="680"
               />
             </span>
             <span class="sb-h3">

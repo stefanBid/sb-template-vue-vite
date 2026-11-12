@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<BaseBadgeProps>(), {
   <span
     class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm sb-overline sb-transition"
     :class="{
-      'bg-primary-soft text-primary': props.variant === 'accent',
+      'bg-accent-soft text-accent': props.variant === 'accent',
       'bg-success-soft text-success': props.variant === 'success',
       'bg-warning-soft text-warning': props.variant === 'warning',
       'bg-error-soft text-error': props.variant === 'error',

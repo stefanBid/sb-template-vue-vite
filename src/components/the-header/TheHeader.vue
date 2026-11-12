@@ -132,10 +132,10 @@ watch(isMdUp, (newVal) => {
               aria-hidden="true"
               class="object-contain size-6 md:size-7"
               fetchpriority="high"
-              height="797"
+              height="796"
               loading="eager"
               src="/logo.svg"
-              width="682"
+              width="680"
             />
           </span>
           <span class="sb-h3 tracking-tight text-ink sb-transition">

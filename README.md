@@ -34,10 +34,11 @@ npm run dev          # http://localhost:5173
 |---|---|
 | Project name, version (`0.0.1`) | `package.json` |
 | Site name, title template, social links | `src/config/app.ts` |
-| Default `<title>`, `theme-color`, favicon | `index.html`, `public/` |
+| Default `<title>`, `theme-color` | `index.html` |
+| Logo and icons | `public/logo.svg`, `public/favicon.svg`, `public/favicon.ico` (16/32/48), `public/apple-touch-icon.png` (180, opaque) |
 | Pages and their title/description | `src/views/`, `src/router/index.ts`, `meta.*` keys in `src/i18n/locales/` |
 | Languages | `src/i18n/index.ts` (`SUPPORTED_LOCALES`), one `src/i18n/locales/<code>.json` each, the `langs` list in `src/layouts/DefaultLayout.vue` |
-| Palette | `--sb-primary*` tokens in `src/assets/css/theme.css` (both themes) |
+| Palette | `--sb-primary*` and neutral tokens in `src/assets/css/theme.css` (both themes), `--sb-brand-*` for your logo colors |
 | Fonts | see [Fonts](#fonts) |
 
 Then delete `CHANGELOG.md` (if present) and `.github/workflows/release-please.yml`, or keep release-please and remove its `if: github.repository == …` guard. `.template-version` records which template release you started from — keep it, it helps with future migrations.
@@ -140,6 +141,16 @@ Colours, shadows, radii, type scale and motion are closed token sets in `src/ass
 
 - `main.css` is the only file imported (from `src/main.ts`); it imports Tailwind and the other three.
 - `theme.css`: colour roles for both themes (`:root` / `[data-theme="dark"]`), shadows, radii, breakpoints. Literal colours live only here.
+- Brand tokens (`--sb-brand-green`, `-purple`, `-cyan`, `-yellow`, `--sb-brand-gradient`, utility `bg-brand-gradient`) carry the logo colors and are the same in both themes. The UI reaches them through roles, each with an AA-safe shade per theme (`#42b883` and `#41d1ff` stay pure in the dark theme, darker in the light one):
+
+  | Brand color | Role | Used for |
+  |---|---|---|
+  | green `#42b883` | `primary` | actions, links, active navigation |
+  | purple `#bd34fe` | `accent` | focus ring (`focus-ring`), `accent` badges |
+  | cyan `#41d1ff` | `info` | info notifications, badges and tints |
+  | yellow `#ffdd35` | `highlight` / `on-highlight` | text selection, `<mark>` (always dark text on top) |
+
+  Use the raw `brand-*` colors and `bg-brand-gradient` only for brand moments (logo, icons, the token showcase), never on controls, text or borders.
 - `typography.css`: families, type scale and the `sb-*` type roles.
 - `animation.css`: durations, easings, `sb-transition`, `sb-focus` and the Vue transition classes (`page`, `fade`, `slide-down`, `scale-fade`).
 

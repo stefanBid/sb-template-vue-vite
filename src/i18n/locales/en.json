@@ -74,6 +74,7 @@
         "panel-filename": "theme.css",
         "token-lines": {
           "accent": "--sb-primary",
+          "brand": "--sb-brand-gradient",
           "font-primary": "--font-display",
           "font-secondary": "--font-body",
           "scale-ratio": "--text-body"

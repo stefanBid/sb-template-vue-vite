@@ -30,3 +30,8 @@ npm-debug.log*
 .DS_Store
 *.suo
 *.sw?
+
+# Impeccable (local design tooling, not versioned)
+.impeccable/
+PRODUCT.md
+DESIGN.md
