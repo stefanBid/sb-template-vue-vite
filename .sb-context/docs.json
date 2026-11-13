@@ -1,0 +1,384 @@
+{
+  "schema": 1,
+  "updatedAt": "2026-11-13",
+  "links": [
+    {
+      "url": "https://vuejs.org/api/sfc-script-setup.html",
+      "title": "<script setup>",
+      "topic": "script-setup",
+      "package": "vue",
+      "version": "3",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+      "title": "Reactivity fundamentals",
+      "topic": "reactivity",
+      "package": "vue",
+      "version": "3",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vuejs.org/guide/extras/composition-api-faq.html",
+      "title": "Composition API FAQ",
+      "topic": "composition-api",
+      "package": "vue",
+      "version": "3",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vuejs.org/guide/components/props.html",
+      "title": "Props",
+      "topic": "props",
+      "package": "vue",
+      "version": "3",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vuejs.org/guide/components/slots.html",
+      "title": "Slots",
+      "topic": "slots",
+      "package": "vue",
+      "version": "3",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vuejs.org/guide/reusability/composables.html",
+      "title": "Composables",
+      "topic": "composables",
+      "package": "vue",
+      "version": "3",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vuejs.org/guide/typescript/composition-api.html",
+      "title": "TypeScript with the Composition API",
+      "topic": "typescript",
+      "package": "vue",
+      "version": "3",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vuejs.org/api/",
+      "title": "API reference",
+      "topic": "api",
+      "package": "vue",
+      "version": "3",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vite.dev/config/",
+      "title": "Configuring Vite",
+      "topic": "config",
+      "package": "vite",
+      "version": "8",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:align"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vite.dev/guide/build.html",
+      "title": "Building for production",
+      "topic": "build",
+      "package": "vite",
+      "version": "8",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vite.dev/guide/features.html",
+      "title": "Features (CSS, assets, TypeScript)",
+      "topic": "features",
+      "package": "vite",
+      "version": "8",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vite.dev/guide/env-and-mode.html",
+      "title": "Env variables and modes",
+      "topic": "env",
+      "package": "vite",
+      "version": "8",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vite.dev/guide/migration.html",
+      "title": "Migration from the previous major",
+      "topic": "upgrade",
+      "package": "vite",
+      "version": "8",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-health:deps"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://tailwindcss.com/docs/theme",
+      "title": "Theme variables",
+      "topic": "theme",
+      "package": "tailwindcss",
+      "version": "4",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui",
+        "sb-design:align"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://tailwindcss.com/docs/adding-custom-styles",
+      "title": "Adding custom styles",
+      "topic": "custom-styles",
+      "package": "tailwindcss",
+      "version": "4",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:align"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://tailwindcss.com/docs/functions-and-directives",
+      "title": "Functions and directives",
+      "topic": "directives",
+      "package": "tailwindcss",
+      "version": "4",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:align"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://tailwindcss.com/docs/dark-mode",
+      "title": "Dark mode",
+      "topic": "dark-mode",
+      "package": "tailwindcss",
+      "version": "4",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:align"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://tailwindcss.com/docs/installation/using-vite",
+      "title": "Installing with Vite",
+      "topic": "vite",
+      "package": "tailwindcss",
+      "version": "4",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://tailwindcss.com/docs/upgrade-guide",
+      "title": "Upgrade guide",
+      "topic": "upgrade",
+      "package": "tailwindcss",
+      "version": "4",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-health:deps"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://router.vuejs.org/guide/",
+      "title": "Getting started",
+      "topic": "guide",
+      "package": "vue-router",
+      "version": "5",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://router.vuejs.org/guide/essentials/dynamic-matching.html",
+      "title": "Dynamic route matching",
+      "topic": "dynamic-routes",
+      "package": "vue-router",
+      "version": "5",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+      "title": "Navigation guards",
+      "topic": "guards",
+      "package": "vue-router",
+      "version": "5",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://router.vuejs.org/guide/advanced/lazy-loading.html",
+      "title": "Lazy loading routes",
+      "topic": "lazy-loading",
+      "package": "vue-router",
+      "version": "5",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vue-i18n.intlify.dev/guide/essentials/started.html",
+      "title": "Getting started",
+      "topic": "started",
+      "package": "vue-i18n",
+      "version": "11",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vue-i18n.intlify.dev/guide/advanced/composition.html",
+      "title": "Composition API",
+      "topic": "composition",
+      "package": "vue-i18n",
+      "version": "11",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vueuse.org/functions.html",
+      "title": "Functions",
+      "topic": "functions",
+      "package": "@vueuse/core",
+      "version": "15",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://vueuse.org/core/useColorMode/",
+      "title": "useColorMode",
+      "topic": "color-mode",
+      "package": "@vueuse/core",
+      "version": "15",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:align"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://fontsource.org/docs/getting-started/install",
+      "title": "Installing fonts",
+      "topic": "install",
+      "package": "@fontsource",
+      "version": "5",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:align"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://github.com/unplugin/unplugin-icons#readme",
+      "title": "Usage",
+      "topic": "readme",
+      "package": "unplugin-icons",
+      "version": "24",
+      "summary": null,
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "url": "https://github.com/stefanBid/sb-floating-panel-vue#readme",
+      "title": "sb-floating-panel-vue README",
+      "topic": "readme",
+      "package": "sb-floating-panel-vue",
+      "version": "5",
+      "summary": "covers SbContainer, SbReference, SbFloating and useSbFloating() for dropdowns, menus, tooltips, popovers (built on @floating-ui/vue); version not stated on the page",
+      "source": "proposed",
+      "usedBy": [
+        "sb-design:extract-ui"
+      ],
+      "verifiedAt": "2026-11-13"
+    },
+    {
+      "url": "https://github.com/cure53/DOMPurify",
+      "title": "DOMPurify README",
+      "topic": "readme",
+      "package": "dompurify",
+      "version": "3",
+      "summary": "covers the HTML/SVG/MathML sanitize API, config options and hooks; version 3.4",
+      "source": "proposed",
+      "usedBy": [],
+      "verifiedAt": "2026-11-13"
+    }
+  ]
+}
