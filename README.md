@@ -32,7 +32,7 @@ npm run dev          # http://localhost:5173
 
 | What | Where |
 |---|---|
-| Project name, version (`0.0.1`) | `package.json` |
+| Project name, version (reset it, e.g. `0.0.1`) | `package.json` |
 | Site name, title template, social links | `src/config/app.ts` |
 | Default `<title>`, `theme-color` | `index.html` |
 | Logo and icons | `public/logo.svg`, `public/favicon.svg`, `public/favicon.ico` (16/32/48), `public/apple-touch-icon.png` (180, opaque) |
@@ -42,6 +42,8 @@ npm run dev          # http://localhost:5173
 | Fonts | see [Fonts](#fonts) |
 
 Then delete `CHANGELOG.md` (if present) and `.github/workflows/release-please.yml`, or keep release-please and remove its `if: github.repository == …` guard. `.template-version` records which template release you started from — keep it, it helps with future migrations.
+
+GitHub does not copy repository settings or rulesets from a template: set them up again on your repo (see [Versioning and branches](#versioning-and-branches)).
 
 ---
 
@@ -64,10 +66,17 @@ On `main` always `npm ci`, never `npm install`.
 ## Project layout
 
 ```
+.github/workflows/  ci.yml, pr-title-lint.yml, release-please.yml
+.sb-context/        project profile, settings and doc links for the Claude Code plugins (committed)
+CLAUDE.md           instructions for Claude Code: project docs block, written by /sb-core:context
+PRODUCT.md          product context for Impeccable (users, purpose, brand, principles)
 index.html          entry HTML: base meta, noindex, theme script (no flash of the wrong theme)
+netlify.toml        Netlify build and SPA rewrite
 public/             static files served as-is (favicon, logo, robots.txt, example images)
+scripts/            safe-install.sh (npm run si)
 src/
   main.ts           creates the app: fonts, global CSS, i18n, router, global error handler
+  env.d.ts          Vite client types and ImportMetaEnv (type VITE_* variables here)
   App.vue           picks the layout from route.meta, page transition, title/description, error view
   assets/css/       main.css, theme.css, typography.css, animation.css
   components/       base/ (reusable) · the-* (layout singletons)
@@ -209,8 +218,10 @@ Vite exposes only variables prefixed with `VITE_` through `import.meta.env`. Cop
 ## Versioning and branches
 
 - Releases use [release-please](https://github.com/googleapis/release-please) on conventional commits (`feat:`, `fix:`, `feat!:`). In **this template** it manages tags and `CHANGELOG.md`; its workflow only runs on the template repository.
-- `main` is the only long-lived branch and changes only through pull requests from short-lived branches (`feat/…`, `fix/…`, `chore/deps-…`). PR titles are linted against the conventional-commit format.
-- CI (`.github/workflows/ci.yml`): lint, type check and build on every pull request into `main`.
+- `main` is the only long-lived branch and changes only through pull requests from short-lived branches (`feat/…`, `fix/…`, `chore/deps-…`). PR titles are linted against the conventional-commit format (`lint-pr-title`).
+- Merges are **squash only**: the PR title becomes the commit on `main` (that is what release-please reads), the PR body its message. Merged branches are deleted automatically.
+- The `main-protected` ruleset blocks direct pushes, force pushes and deletion of `main`, and requires the `build` and `lint-pr-title` checks. Release-please PRs are opened with `GITHUB_TOKEN`, so no workflow reports on them: a repository admin merges them with the ruleset's pull-request bypass.
+- CI (`.github/workflows/ci.yml`): lint, type check and build on every pull request into `main` and on pushes to `main`.
 - Deployment target: Netlify (`netlify.toml`).
 
 ## License
