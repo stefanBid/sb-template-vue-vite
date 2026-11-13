@@ -194,19 +194,12 @@ watch(isMdUp, (newVal) => {
       </div>
     </header>
 
-    <!-- OVERLAY + LATERAL DRAWER (below md) -->
+    <!-- FULL-WIDTH DRAWER (below md) -->
     <div class="md:hidden">
-      <div
-        aria-hidden="true"
-        class="fixed inset-0 top-16 bg-bg/80 backdrop-blur-sm transition-opacity duration-200"
-        :class="open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
-        @click.stop="onClose()"
-      ></div>
-
       <aside
         id="mobile-drawer"
         :aria-modal="open ? 'true' : undefined"
-        class="fixed left-0 top-16 h-[calc(100dvh-4rem)] w-72 max-w-[85vw] bg-surface border-r border-border shadow-lg transition-transform duration-300 will-change-transform flex flex-col"
+        class="fixed inset-x-0 top-16 h-[calc(100dvh-4rem)] w-full bg-surface transition-transform duration-300 will-change-transform flex flex-col"
         :class="open ? 'translate-x-0' : '-translate-x-full'"
         :inert="!open"
         :role="open ? 'dialog' : undefined"

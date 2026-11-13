@@ -9,6 +9,11 @@
   "engines": {
     "node": ">=24.19.0"
   },
+  "_comment_dependencies": {
+    "typescript": "held at 6.x: TypeScript 7 waits for typescript-eslint (peer <6.1.0) and @volar/typescript, used by vue-tsc (peer <7), to accept it (note typescript@7.0.2)",
+    "minimatch": "transitive, advisory GHSA-g3hv-75wg-m249 fixed only in 11.x, which eslint and @typescript-eslint/typescript-estree do not accept yet; npm audit's fix is a downgrade to eslint 9, not applied (note minimatch@11.0.1)",
+    "@types/node": "held at 24.x on purpose: types follow the Node runtime, and the project runs Node 24 (note @types/node@26.6.6)"
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

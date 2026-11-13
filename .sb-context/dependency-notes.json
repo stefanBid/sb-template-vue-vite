@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "notes": [
+    {
+      "id": "typescript@7.0.2",
+      "package": "typescript",
+      "current": "6.0.3",
+      "target": "7.0.2",
+      "status": "deferred",
+      "summary": "TypeScript 7 not accepted yet: typescript-eslint 8.72.2 has peer typescript >=4.8.4 <6.1.0 and @volar/typescript 2.4.31 (used by vue-tsc) has peer typescript <7",
+      "blockedBy": [
+        {
+          "package": "typescript-eslint",
+          "range": ">=4.8.4 <6.1.0",
+          "owner": "upstream"
+        },
+        {
+          "package": "@volar/typescript",
+          "range": "<7",
+          "owner": "upstream"
+        }
+      ],
+      "recheck": "do typescript-eslint@latest and @volar/typescript@latest accept typescript 7? (npm view typescript-eslint@latest peerDependencies; npm view @volar/typescript@latest peerDependencies)",
+      "links": [],
+      "firstSeen": "2026-11-13",
+      "lastChecked": "2026-11-13",
+      "history": []
+    },
+    {
+      "id": "minimatch@11.0.1",
+      "package": "minimatch",
+      "current": "10.2.6",
+      "target": "11.0.1",
+      "status": "watching",
+      "summary": "transitive: advisory GHSA-g3hv-75wg-m249 (moderate, ReDoS via globparts) fixed only in minimatch 11.x; eslint 10.14.0, @eslint/config-array 0.23.5 and @typescript-eslint/typescript-estree 8.72.2 still require minimatch ^10. npm audit's suggested fix is a downgrade to eslint 9: not applied",
+      "blockedBy": [
+        {
+          "package": "eslint",
+          "range": "^10.2.6",
+          "owner": "upstream"
+        },
+        {
+          "package": "@typescript-eslint/typescript-estree",
+          "range": "^10.2.2",
+          "owner": "upstream"
+        }
+      ],
+      "recheck": "does eslint@latest or @typescript-eslint/typescript-estree@latest depend on minimatch ^11? (npm view eslint@latest dependencies.minimatch; npm view @typescript-eslint/typescript-estree@latest dependencies.minimatch)",
+      "links": [
+        "https://github.com/advisories/GHSA-g3hv-75wg-m249"
+      ],
+      "firstSeen": "2026-11-13",
+      "lastChecked": "2026-11-13",
+      "history": []
+    },
+    {
+      "id": "@types/node@26.6.6",
+      "package": "@types/node",
+      "current": "24.19.2",
+      "target": "26.6.6",
+      "status": "deferred",
+      "summary": "held at 24.x on purpose: types must match the Node runtime, and the project runs Node 24 (engines >=24.19.0, .nvmrc, CI, Netlify)",
+      "blockedBy": [
+        {
+          "package": "node",
+          "range": "24",
+          "owner": "project"
+        }
+      ],
+      "recheck": "has the project moved to Node 26? (cat .nvmrc; engines.node in package.json)",
+      "links": [],
+      "firstSeen": "2026-11-13",
+      "lastChecked": "2026-11-13",
+      "history": []
+    }
+  ]
+}

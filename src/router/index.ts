@@ -38,7 +38,11 @@ export const router = createRouter({
   ],
   scrollBehavior(to, _from, savedPosition) {
     if (to.hash) {
-      return { el: to.hash, behavior: 'smooth' }
+      // Vue Router scrolls with window.scrollTo, which ignores CSS scroll-margin: pass it as offset
+      // so the target's scroll-mt-* keeps it clear of the sticky header
+      const target = document.getElementById(decodeURIComponent(to.hash.slice(1)))
+      const top = target ? Number.parseFloat(getComputedStyle(target).scrollMarginTop) || 0 : 0
+      return { el: to.hash, top, behavior: 'smooth' }
     }
     if (savedPosition) {
       return savedPosition

@@ -72,7 +72,9 @@ export function useScrollSpy(ids: MaybeRefOrGetter<string[]>): {
       return
     }
 
-    // Reading band: below the sticky header, above the lower half of the viewport
+    // Reading band: below the sticky header, above the lower half of the viewport.
+    // It starts a few px below the sections' scroll-mt-24 (96px): a section scrolled into place sits at 96px,
+    // and the previous one, ending exactly there, must not still touch the band
     _observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -83,7 +85,7 @@ export function useScrollSpy(ids: MaybeRefOrGetter<string[]>): {
         }
       }
       _pickActive()
-    }, { rootMargin: '-96px 0px -55% 0px' })
+    }, { rootMargin: '-100px 0px -55% 0px' })
 
     elements.forEach(el => _observer?.observe(el))
   }
