@@ -2,9 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- Web application: keep it out of search engines (see also public/robots.txt) -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="" />
+    <!-- Browser chrome follows the page background (--sb-bg) of each theme -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f8fa" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e141b" />
+    <!-- favicon.ico for legacy browsers, favicon.svg everywhere else, apple-touch-icon for iOS home screens -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sb-template-vue-vite</title>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Your Site Name</title>
+    <!--
+      Applies the saved theme before the first paint, so dark mode never flashes light.
+      Same storage key and attribute as useAppColorMode (src/composables/useAppColorMode.ts).
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('sb-color-mode')
+          var isDark = stored === 'dark' || (stored !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+          document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
+        }
+        catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>

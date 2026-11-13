@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "detectedAt": "2026-11-13",
+  "confirmed": [
+    "kind",
+    "rendering"
+  ],
+  "adapter": "vue-vite",
+  "framework": {
+    "name": "vue",
+    "major": 3
+  },
+  "bundler": {
+    "name": "vite",
+    "major": 8
+  },
+  "kind": "app",
+  "rendering": "csr",
+  "language": "ts",
+  "packageManager": "npm",
+  "templates": "vue-sfc",
+  "paths": {
+    "src": "src",
+    "styles": "src/assets/css",
+    "components": "src/components",
+    "composables": "src/composables",
+    "pages": "src/views",
+    "layouts": "src/layouts",
+    "public": "public"
+  },
+  "entries": {
+    "config": "vite.config.ts",
+    "app": "src/main.ts",
+    "lib": null,
+    "css": "src/main.ts"
+  },
+  "styling": {
+    "engine": {
+      "name": "tailwind4",
+      "via": "@tailwindcss/vite"
+    },
+    "colorMode": "@vueuse/core",
+    "fonts": "@fontsource"
+  },
+  "features": {
+    "router": "vue-router",
+    "autoImport": false,
+    "i18n": "vue-i18n",
+    "icons": "unplugin-icons",
+    "images": null,
+    "state": null,
+    "test": null,
+    "lint": "eslint",
+    "typecheck": "vue-tsc"
+  },
+  "library": null
+}

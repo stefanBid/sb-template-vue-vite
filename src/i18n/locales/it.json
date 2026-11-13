@@ -1,0 +1,296 @@
+{
+  "announcement": {},
+  "ui": {
+    "close": "Chiudi",
+    "toggle-theme": "Cambia tema",
+    "no-options": "Nessuna opzione disponibile",
+    "placeholder": "Inserisci un valore...",
+    "select-placeholder": "Seleziona…",
+    "carousel": {
+      "label": "Carosello multimediale",
+      "previous-photo": "Foto precedente",
+      "next-photo": "Foto successiva",
+      "previous-video": "Video precedente",
+      "next-video": "Video successivo",
+      "pause": "Metti in pausa la presentazione",
+      "play": "Avvia la presentazione",
+      "media-alt": "Contenuto {n}",
+      "thumbnail-alt": "Miniatura {n}",
+      "video-thumbnail-alt": "Miniatura video {n}",
+      "video-unsupported": "Questo browser non supporta il formato video."
+    },
+    "combobox": {
+      "selected-count": "{n} selezionati",
+      "selected-list": "Opzioni selezionate",
+      "remove": "Rimuovi {label}"
+    },
+    "opens-new-tab": "(si apre in una nuova scheda)",
+    "welcome-title": "Benvenuto",
+    "welcome-message": "Questa è una notifica informativa di benvenuto per gli utenti del sito."
+  },
+  "nav": {
+    "privacy-policy": "Informativa sulla Privacy",
+    "terms-and-conditions": "Termini e Condizioni",
+    "sections": {
+      "actions": "Azioni",
+      "content": "Card e Accordion",
+      "form": "Form",
+      "overlays": "Dialog e media",
+      "system": "Sistema"
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "Your Site Name — Il tuo slogan",
+      "description": "Una breve descrizione della tua homepage per i motori di ricerca e la condivisione sui social. Tienila tra 120 e 160 caratteri."
+    }
+  },
+  "error": {
+    "not-found-badge": "Pagina non trovata",
+    "generic-badge": "Qualcosa è andato storto",
+    "generic-code": "Errore",
+    "not-found-message": "La pagina che cerchi non esiste.",
+    "generic-message": "Si è verificato un errore imprevisto.",
+    "details": "Dettagli tecnici (debug)",
+    "hint": "Controlla che l'URL sia corretto, oppure torna alla home e continua a esplorare.",
+    "back-home": "Torna alla home",
+    "explore": "Esplora"
+  },
+  "header": {
+    "route-section": "Menu",
+    "settings-section": "Impostazioni",
+    "change-lang": "Cambia lingua",
+    "open-menu": "Apri il menu",
+    "close-menu": "Chiudi il menu"
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "badge": "Vue 3 · Vite · Tailwind v4",
+        "title": "Un template di base per interfacce coerenti, con token, componenti e dark mode già inclusi.",
+        "lead": "SB Template Vue Vite è il punto di partenza per i tuoi prossimi progetti: token di colore e tipografia già definiti, componenti pronti all'uso, dark mode inclusa di serie.",
+        "cta-primary": "Esplora i componenti",
+        "cta-secondary": "Vedi su GitHub",
+        "panel-filename": "theme.css",
+        "token-lines": {
+          "accent": "--sb-primary",
+          "brand": "--sb-brand-gradient",
+          "font-primary": "--font-display",
+          "font-secondary": "--font-body",
+          "scale-ratio": "--text-body"
+        }
+      },
+      "i18n": {
+        "eyebrow": "i18n",
+        "heading": "Due lingue, pronte fin da subito",
+        "description": "Ogni stringa dell'app passa da useI18n() — i file di traduzione sono l'unica fonte di verità, inglese e italiano fianco a fianco, già pronti all'uso.",
+        "panel-filename": "locales/*.json",
+        "locale-label": "--i18n-locale",
+        "strategy-label": "--i18n-strategy",
+        "strategy-value": "nessun prefisso URL, scelta salvata",
+        "files-label": "--i18n-locales",
+        "files-value": "en, it",
+        "hint": "Cambia lingua dal toggle nell'header per vedere tutta la pagina aggiornarsi dal vivo."
+      },
+      "buttons": {
+        "eyebrow": "Bottoni",
+        "heading": "Azioni chiare, per ogni contesto",
+        "description": "Quattro varianti semantiche e tre dimensioni, pensate per coprire dalla toolbar alla call to action principale.",
+        "save": "Salva modifiche",
+        "cancel": "Annulla",
+        "duplicate": "Duplica",
+        "learn-more": "Scopri di più",
+        "delete-account": "Elimina account",
+        "unavailable": "Non disponibile",
+        "sizes-title": "Dimensioni",
+        "small": "Piccolo",
+        "medium": "Medio",
+        "large": "Grande",
+        "loading": "Salvataggio…"
+      },
+      "badges": {
+        "eyebrow": "Badge & Chip",
+        "heading": "Stato e selezione a colpo d'occhio",
+        "description": "I badge comunicano uno stato non interattivo; le chip sono selezionabili o rimovibili, utili per filtri e tag.",
+        "badges-label": "Badge di stato",
+        "chips-label": "Chip filtro",
+        "in-progress": "In lavorazione",
+        "completed": "Completato",
+        "pending": "In attesa",
+        "failed": "Fallito",
+        "new": "Nuovo",
+        "draft": "Bozza",
+        "all": "Tutti",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "design": "Design",
+        "archived": "Archiviato"
+      },
+      "cards": {
+        "eyebrow": "Card",
+        "heading": "Contenitori con gerarchia, non tutti uguali",
+        "description": "Tre trattamenti diversi in base al peso del contenuto: una card in evidenza, una numerica e un elenco compatto.",
+        "feature": {
+          "title": "Design system pronto",
+          "paragraph": "Colori, tipografia e spaziature derivano dagli stessi token, in light e dark mode, senza doverli ridefinire per ogni componente.",
+          "button": "Vedi i token"
+        },
+        "stat": {
+          "label": "Progetti avviati con questo starter",
+          "delta": "+12 questo mese",
+          "value": "128"
+        },
+        "list": {
+          "label": "Ultimi componenti aggiunti",
+          "button": {
+            "name": "Button",
+            "status": "Stabile"
+          },
+          "dialog": {
+            "name": "Dialog",
+            "status": "Stabile"
+          },
+          "accordion": {
+            "name": "Accordion",
+            "status": "Beta"
+          }
+        }
+      },
+      "accordion": {
+        "eyebrow": "Accordion",
+        "heading": "Domande frequenti sullo starter",
+        "description": "Pannelli espandibili con animazione dell'altezza e stato di apertura persistente.",
+        "items": {
+          "theme-colors": {
+            "title": "Come cambio i colori del tema?",
+            "content": "Modifica le variabili in theme.css: ogni componente le legge automaticamente, sia in light che in dark mode."
+          },
+          "vue-compat": {
+            "title": "Posso riusare i componenti in un'altra app Vue?",
+            "content": "Sì, ogni componente è un Single File Component Vue con import espliciti: copialo insieme allo stile globale e funziona in qualsiasi app Vue 3 + Vite."
+          },
+          "dark-mode": {
+            "title": "Posso disattivare la dark mode?",
+            "content": "Sì, togli il selettore del tema e lascia data-theme=\"light\" sull'elemento html: i componenti restano nel tema chiaro."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "Modulo",
+        "heading": "Tutti i controlli di un form",
+        "description": "Testo, area di testo, select, checkbox, radio e switch, con stati di focus ed errore coerenti.",
+        "project-name": {
+          "label": "Nome progetto",
+          "placeholder": "Es. Dashboard clienti"
+        },
+        "email": {
+          "label": "Email",
+          "error": "Inserisci un indirizzo email valido"
+        },
+        "description-field": {
+          "label": "Descrizione",
+          "placeholder": "Descrivi brevemente il progetto..."
+        },
+        "team": {
+          "label": "Team",
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "design": "Design"
+        },
+        "notifications-title": "Notifiche",
+        "email-notifications": "Notifiche via email",
+        "weekly-report": "Report settimanale",
+        "visibility-title": "Visibilità progetto",
+        "visibility-private": "Privato",
+        "visibility-team": "Team",
+        "visibility-public": "Pubblico",
+        "preferences-title": "Preferenze",
+        "accept-terms": "Accetto i termini di servizio",
+        "subscribe-newsletter": "Iscrivimi alla newsletter",
+        "states-title": "Disabilitati e sola lettura",
+        "states": {
+          "disabled-label": "ID workspace",
+          "disabled-placeholder": "Bloccato dall'amministratore",
+          "readonly-label": "Slug del progetto",
+          "readonly-value": "sb-template-vue-vite",
+          "disabled-switch": "Funzioni beta",
+          "disabled-checkbox": "Accetta i termini legacy",
+          "error-label": "Email di fatturazione",
+          "error-value": "fatturazione{'@'}"
+        },
+        "combobox": {
+          "single-label": "Team principale",
+          "multiple-label": "Team collaboratori"
+        }
+      },
+      "dialog": {
+        "eyebrow": "Dialog",
+        "heading": "Conferme che non spezzano il flusso",
+        "description": "Titolo e azioni si adattano alla dimensione del dialog, da una piccola conferma a un pannello a tutto schermo.",
+        "cancel-button": "Annulla",
+        "sm": {
+          "trigger": "Piccolo",
+          "title": "Eliminare questo progetto?",
+          "content": "L'azione è permanente: tutti i file e le impostazioni associate andranno persi.",
+          "confirm-button": "Elimina definitivamente"
+        },
+        "md": {
+          "trigger": "Medio",
+          "title": "Invita un collega",
+          "subtitle": "Riceverà un invito via email",
+          "content": "Aggiungi un collega tramite email per dargli accesso a questo progetto. Puoi cambiare il suo ruolo in qualsiasi momento dalle impostazioni.",
+          "confirm-button": "Invia invito"
+        },
+        "lg": {
+          "trigger": "Grande",
+          "title": "Novità nella v2.6",
+          "subtitle": "Note di rilascio",
+          "content": "Questa release aggiunge quattro nuovi componenti form (switch, radio, select, badge), una scala di radius semantica e un pannello i18n completo nella homepage. Vedi il changelog per l'elenco completo delle correzioni.",
+          "confirm-button": "Capito"
+        },
+        "full": {
+          "trigger": "Full",
+          "title": "Termini di Servizio",
+          "subtitle": "Leggi prima di continuare",
+          "content": "Questo template è fornito così com'è, per uso in progetti personali e commerciali. Sei libero di modificarlo, estenderlo e ridistribuirlo come parte del tuo lavoro. Nessuna garanzia è fornita — consulta la licenza del repository per i termini completi.",
+          "confirm-button": "Accetta e continua"
+        }
+      },
+      "components": {
+        "eyebrow": "Componenti",
+        "heading": "Pensato per contenuti reali",
+        "description": "Oltre a bottoni e form — un carosello media per gallerie e un renderer di rich text sanificato per contenuti da CMS.",
+        "carousel-label": "Carosello media",
+        "rich-text-label": "Rich text",
+        "rich-text-heading": "Rendering rich text",
+        "rich-text-intro": "BaseRichText converte un array di blocchi in HTML sanificato, con la stessa tipografia del resto dell'app — sicuro da usare direttamente con contenuti da CMS.",
+        "rich-text-list-item-1": "Titoli, paragrafi e formattazione inline",
+        "rich-text-list-item-2": "Liste ordinate e non ordinate, citazioni e blocchi di codice",
+        "carousel-alt": "Immagine di esempio {n}"
+      },
+      "responsive": {
+        "eyebrow": "Responsive",
+        "heading": "A posto su ogni schermo",
+        "description": "Gli stessi token e componenti si adattano da mobile a desktop, senza breakpoint separati da mantenere a mano.",
+        "specimen-sample": "La luce attraverso il vetro",
+        "links-heading": "Open source, gratuito da usare",
+        "github-link": "Vedi su GitHub",
+        "website-link": "Altro di Stefano Biddau",
+        "templates-link": "Sfoglia altri template"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Slogan del tuo sito",
+    "route-section": "Link Rapidi",
+    "route-fallback": "Navigazione in arrivo",
+    "contact-section": "Contatti & Social",
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    },
+    "credit-section": "© { year } [your name] - Tutti i diritti riservati.",
+    "made-with": "Progettato e sviluppato con ❤ da Stefano Biddau"
+  }
+}
