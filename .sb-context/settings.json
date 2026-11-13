@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "i18n": {
+    "enabled": true,
+    "source": "user",
+    "updatedAt": "2026-11-13",
+    "defaultLocale": "en",
+    "locales": [
+      "en",
+      "it"
+    ],
+    "otherLocales": "translate",
+    "messagesDir": "src/i18n/locales",
+    "keyStyle": "area.name.element"
+  },
+  "icons": {
+    "module": "unplugin-icons",
+    "source": "user",
+    "updatedAt": "2026-11-13"
+  },
+  "naming": {
+    "componentPrefix": "Base",
+    "source": "user",
+    "updatedAt": "2026-11-13"
+  },
+  "style": {
+    "prefix": "sb",
+    "source": "user",
+    "updatedAt": "2026-11-13"
+  }
+}
