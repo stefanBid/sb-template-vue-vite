@@ -67,7 +67,6 @@ On `main` always `npm ci`, never `npm install`.
 
 ```
 .github/workflows/  ci.yml, pr-title-lint.yml, release-please.yml
-.sb-context/        project profile, settings and doc links for the Claude Code plugins (committed)
 CLAUDE.md           instructions for Claude Code: project docs block, written by /sb-core:context
 PRODUCT.md          product context for Impeccable (users, purpose, brand, principles)
 index.html          entry HTML: base meta, noindex, theme script (no flash of the wrong theme)

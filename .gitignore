@@ -34,7 +34,7 @@ npm-debug.log*
 # Impeccable (local design tooling, not versioned)
 .impeccable/
 PRODUCT.md
-DESIGN.mdù
+DESIGN.md
 
 # Sb Context AI
 .sb-context
