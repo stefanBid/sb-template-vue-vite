@@ -68,7 +68,6 @@ On `main` always `npm ci`, never `npm install`.
 ```
 .github/workflows/  ci.yml, pr-title-lint.yml, release-please.yml
 CLAUDE.md           instructions for Claude Code: project docs block, written by /sb-core:context
-PRODUCT.md          product context for Impeccable (users, purpose, brand, principles)
 index.html          entry HTML: base meta, noindex, theme script (no flash of the wrong theme)
 netlify.toml        Netlify build and SPA rewrite
 public/             static files served as-is (favicon, logo, robots.txt, example images)
