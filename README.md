@@ -80,6 +80,7 @@ The `sb-context-fe` plugins (`sb-core`, `sb-github`, `sb-health`, `sb-design`) a
 | `npm run type-check` | `vue-tsc --build` |
 | `npm run lint` / `npm run lint:fix` | ESLint |
 | `npm run si` | Safe install: `npm ci` on `main`, `npm install` elsewhere |
+| `npm run clear` | Removes `dist`, `dist-ssr`, `coverage`, `.netlify` and `node_modules`, then cleans the npm cache (reinstall with `npm run si`) |
 
 On `main` always `npm ci`, never `npm install`.
 
@@ -94,7 +95,7 @@ CLAUDE.md           instructions for Claude Code: links to the official docs of 
 index.html          entry HTML: base meta, noindex, theme script (no flash of the wrong theme)
 netlify.toml        Netlify build and SPA rewrite
 public/             static files served as-is (favicon, logo, robots.txt, example images)
-scripts/            safe-install.sh (npm run si)
+scripts/            safe-install.sh (npm run si), clear.sh (npm run clear)
 src/
   main.ts           creates the app: fonts, global CSS, i18n, router, global error handler
   env.d.ts          Vite client types and ImportMetaEnv (type VITE_* variables here)
