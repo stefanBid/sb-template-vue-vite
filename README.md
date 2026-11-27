@@ -41,9 +41,9 @@ npm run dev          # http://localhost:5173
 | Palette | `--sb-primary*` and neutral tokens in `src/assets/css/theme.css` (both themes), `--sb-brand-*` for your logo colors |
 | Fonts | see [Fonts](#fonts) |
 
-Then delete `CHANGELOG.md` (if present) and `.github/workflows/release-please.yml`, or keep release-please and remove its `if: github.repository == …` guard. `.template-version` records which template release you started from — keep it, it helps with future migrations.
+Then delete `CHANGELOG.md` (if present), `.github/workflows/release-please.yml`, `release-please-config.json` and `.release-please-manifest.json`, or keep release-please: remove the workflow's `if: github.repository == …` guard, set `package-name` in `release-please-config.json` and the version in `.release-please-manifest.json`. `.template-version` records which template release you started from — keep it, it helps with future migrations.
 
-GitHub does not copy repository settings or rulesets from a template: set them up again on your repo (see [Versioning and branches](#versioning-and-branches)).
+GitHub does not copy repository settings, rulesets or security features from a template: set them up again on your repo (see [CI and repository rules](#ci-and-repository-rules)).
 
 ---
 
@@ -88,7 +88,8 @@ On `main` always `npm ci`, never `npm install`.
 ## Project layout
 
 ```
-.github/workflows/  ci.yml, pr-title-lint.yml, release-please.yml
+.github/workflows/  build-check.yml, commitlint.yml, release-please.yml
+.github/rulesets/   main-protected.json: the main ruleset, to apply on your repo
 CLAUDE.md           instructions for Claude Code: links to the official docs of the stack
 index.html          entry HTML: base meta, noindex, theme script (no flash of the wrong theme)
 netlify.toml        Netlify build and SPA rewrite
@@ -237,11 +238,8 @@ Vite exposes only variables prefixed with `VITE_` through `import.meta.env`. Cop
 
 ## Versioning and branches
 
-- Releases use [release-please](https://github.com/googleapis/release-please) on conventional commits (`feat:`, `fix:`, `feat!:`). In **this template** it manages tags and `CHANGELOG.md`; its workflow only runs on the template repository.
-- `main` is the only long-lived branch and changes only through pull requests from short-lived branches (`feat/…`, `fix/…`, `chore/deps-…`). PR titles are linted against the conventional-commit format (`lint-pr-title`).
-- Merges are **squash only**: the PR title becomes the commit on `main` (that is what release-please reads), the PR body its message. Merged branches are deleted automatically.
-- The `main-protected` ruleset blocks direct pushes, force pushes and deletion of `main`, and requires the `build` and `lint-pr-title` checks. Release-please PRs are opened with `GITHUB_TOKEN`, so no workflow reports on them: a repository admin merges them with the ruleset's pull-request bypass.
-- CI (`.github/workflows/ci.yml`): lint, type check and build on every pull request into `main` and on pushes to `main`.
+- Releases use [release-please](https://github.com/googleapis/release-please) on conventional commits (`feat:`, `fix:`, `feat!:`), configured in `release-please-config.json` and `.release-please-manifest.json`. In **this template** it manages tags and `CHANGELOG.md`; its workflow only runs on the template repository (see [Make it yours](#3-make-it-yours)).
+- `main` is the only long-lived branch and changes only through pull requests from short-lived branches (`feat/…`, `fix/…`, `chore/deps-…`).
 - Deployment target: Netlify (`netlify.toml`).
 
 ## License
