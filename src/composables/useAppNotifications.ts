@@ -78,7 +78,8 @@ export function useAppNotifications() {
    */
   function info(newNotification: Omit<NotificationItem, 'type' | 'id'>) {
     return _addNotification({
-      ...newNotification, type: 'info',
+      ...newNotification,
+      type: 'info',
     })
   }
 

@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<TheNotificationBannerProps>(), {
   duration: 5000,
 })
 
-const emit = defineEmits <{
+const emit = defineEmits<{
   (e: 'close', falsyValue: false): void
 }>()
 

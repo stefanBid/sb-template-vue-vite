@@ -45,8 +45,7 @@ const describedBy = computed(() => {
 const lengths = computed(() => ({
   current: model.value?.length || 0,
   max: props.maxLength || 0,
-}),
-)
+}))
 </script>
 
 <template>

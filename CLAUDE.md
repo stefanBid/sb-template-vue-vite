@@ -8,7 +8,7 @@ Optional extra tooling lives in the `sb-context-fe` Claude Code plugins (`sb-cor
 <!-- Written by /sb-core:context from .sb-context/docs.json: change the links there (or run the skill again), not here. -->
 ## Project docs
 
-Vue 3.5 app (client-side rendering) in TypeScript, built with Vite 8.3, styled with Tailwind CSS 4.3.
+Vue 3.5 app (client-side rendering) in TypeScript, built with Vite 8.4, styled with Tailwind CSS 4.3.
 
 These links are the source of truth for this stack, at the versions the project uses. Open them (WebFetch) when unsure or when your own knowledge may be out of date, and say what was not verified against them.
 
