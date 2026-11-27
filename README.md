@@ -43,7 +43,9 @@ npm run dev          # http://localhost:5173
 
 Then delete `CHANGELOG.md` (if present), `.github/workflows/release-please.yml`, `release-please-config.json` and `.release-please-manifest.json`, or keep release-please: remove the workflow's `if: github.repository == …` guard, set `package-name` in `release-please-config.json` and the version in `.release-please-manifest.json`. `.template-version` records which template release you started from — keep it, it helps with future migrations.
 
-GitHub does not copy repository settings, rulesets or security features from a template: set them up again on your repo (see [CI and repository rules](#ci-and-repository-rules)).
+### 4. Configure the GitHub repository
+
+A repo created from a template gets the files (workflows included) but **not the repository settings**: the `main` ruleset, the merge settings and the security features stay on the template. The workflows are written for those settings, so without them the CI runs but protects nothing. Once the first CI run on `main` has finished, apply them as described in [CI and repository rules](#ci-and-repository-rules): ruleset, merge settings, security.
 
 ---
 
@@ -80,6 +82,7 @@ The `sb-context-fe` plugins (`sb-core`, `sb-github`, `sb-health`, `sb-design`) a
 | `npm run type-check` | `vue-tsc --build` |
 | `npm run lint` / `npm run lint:fix` | ESLint |
 | `npm run si` | Safe install: `npm ci` on `main`, `npm install` elsewhere |
+| `npm run clear` | Removes `dist`, `dist-ssr`, `coverage`, `.netlify` and `node_modules`, then cleans the npm cache (reinstall with `npm run si`) |
 
 On `main` always `npm ci`, never `npm install`.
 
@@ -94,7 +97,7 @@ CLAUDE.md           instructions for Claude Code: links to the official docs of 
 index.html          entry HTML: base meta, noindex, theme script (no flash of the wrong theme)
 netlify.toml        Netlify build and SPA rewrite
 public/             static files served as-is (favicon, logo, robots.txt, example images)
-scripts/            safe-install.sh (npm run si)
+scripts/            safe-install.sh (npm run si), clear.sh (npm run clear)
 src/
   main.ts           creates the app: fonts, global CSS, i18n, router, global error handler
   env.d.ts          Vite client types and ImportMetaEnv (type VITE_* variables here)
@@ -244,6 +247,12 @@ Vite exposes only variables prefixed with `VITE_` through `import.meta.env`. Cop
 
 <!-- ci-and-rules:start -->
 ## CI and repository rules
+
+The workflows and the repository settings are one setup, but GitHub copies only the first half when you create a repo from a template. The workflows assume this configuration:
+
+- **`build` and `commitlint` are required checks of the ruleset.** That is why `build-check.yml` runs on every PR, with no `paths-ignore`, and skips its jobs from the inside: a required check must always report, and a skipped job counts as passed. Without the ruleset, a red check does not block the merge.
+- **Squash merge only.** `commitlint.yml` lints only the PR title because that title becomes the single commit on `main` that release-please reads. With merge commits or rebase allowed, the branch's own commits land on `main` without being checked.
+- **`main` changes only through PRs.** A direct push skips both checks.
 
 ### Workflows (copied with the template)
 
