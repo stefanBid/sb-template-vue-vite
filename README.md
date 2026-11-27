@@ -47,6 +47,28 @@ GitHub does not copy repository settings or rulesets from a template: set them u
 
 ---
 
+## Claude Code plugins (optional)
+
+The `sb-context-fe` plugins (`sb-core`, `sb-github`, `sb-health`, `sb-design`) add shortcuts. They live outside your repo. The context they write goes in `.sb-context/`, which this template ignores (it is the maintainer's local context); in your project, remove the `.sb-context/` line from `.gitignore` to commit it (personal files then stay out through the folder's own `.gitignore`):
+
+```
+/plugin marketplace add stefanBid/sb-context-fe
+/plugin install sb-context-fe@sb-context-fe
+```
+
+| Skill | Say |
+|---|---|
+| `/sb-core:setup` | "set up the plugin on this project" (run first) |
+| `/sb-core:context` | "set up the project docs" (the links block in `CLAUDE.md`) |
+| `/sb-health:build` | "check the build" |
+| `/sb-health:lint` | "check the lint" |
+| `/sb-health:deps` | "check dependencies" |
+| `/sb-health:docs` | "update the documentation" |
+| `/sb-design:align` | "reorganize the global style" |
+| `/sb-github:admin` | "open a PR", "set up the branch rules" |
+
+---
+
 ## Commands
 
 | Command | Purpose |

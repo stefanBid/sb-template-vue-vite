@@ -1,3 +1,11 @@
+# CLAUDE.md
+
+Vue 3 + Vite project started from `sb-template-vue-vite` (see `.template-version`). Client-side rendering, Tailwind v4, i18n, dark/light theme.
+
+Optional extra tooling lives in the `sb-context-fe` Claude Code plugins (`sb-core`, `sb-github`, `sb-health`, `sb-design`: checks, global style, GitHub admin); neither the plugins nor the context they keep in `.sb-context/` are committed here (the template ignores `.sb-context/`: it is the maintainer's local context, so the docs block below has no `docs.json` behind it in a fresh project). In a project created from the template, remove that line from `.gitignore` to commit the context the plugins write, and run `/sb-core:context` to manage the block below.
+
+<!-- sb-context:docs:start -->
+<!-- Written by /sb-core:context from .sb-context/docs.json: change the links there (or run the skill again), not here. -->
 ## Project docs
 
 Vue 3.5 app (client-side rendering) in TypeScript, built with Vite 8.3, styled with Tailwind CSS 4.3.
@@ -14,3 +22,4 @@ These links are the source of truth for this stack, at the versions the project 
 - **unplugin-icons 24**: [Usage](https://github.com/unplugin/unplugin-icons#readme)
 - **dompurify 3**: [DOMPurify README](https://github.com/cure53/DOMPurify)
 - **sb-floating-panel-vue 5**: [sb-floating-panel-vue README](https://github.com/stefanBid/sb-floating-panel-vue#readme)
+<!-- sb-context:docs:end -->

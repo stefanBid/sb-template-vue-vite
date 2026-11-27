@@ -36,5 +36,5 @@ npm-debug.log*
 PRODUCT.md
 DESIGN.md
 
-# Sb Context AI
-.sb-context
+# sb-context-fe plugins: the template keeps its context local; in your project remove this line to commit it
+.sb-context/
