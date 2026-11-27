@@ -58,10 +58,8 @@ export default defineConfigWithVueTs(
       // ------------------------------------------------------------
       // 🎨 Style & Readability
       // ------------------------------------------------------------
-      '@stylistic/object-curly-spacing': ['warn', 'always'],
-      '@stylistic/object-curly-newline': ['warn', { multiline: true, consistent: true }],
-      '@stylistic/object-property-newline': ['warn', { allowAllPropertiesOnSameLine: true }],
-      '@stylistic/array-bracket-spacing': ['warn', 'never'],
+      // Spacing and line breaks inside {} [] () come from `@stylistic/list-style`, enabled by the preset above
+      // (it replaces object-curly-spacing/-newline, object-property-newline and array-bracket-spacing since v6)
       '@stylistic/space-before-blocks': ['warn', 'always'],
       '@stylistic/keyword-spacing': ['warn', { before: true, after: true }],
       '@stylistic/space-infix-ops': 'warn',

@@ -33,7 +33,7 @@
     "@iconify-json/flagpack": "^1.2.10",
     "@iconify-json/lucide": "^1.2.160",
     "@intlify/unplugin-vue-i18n": "^11.2.8",
-    "@stylistic/eslint-plugin": "^5.10.0",
+    "@stylistic/eslint-plugin": "^6.0.1",
     "@tailwindcss/vite": "^4.3.5",
     "@tsconfig/node24": "^24.0.6",
     "@types/node": "^24.19.4",
@@ -49,6 +49,12 @@
     "unplugin-icons": "^24.0.0",
     "vite": "^8.4.0",
     "vue-tsc": "^3.3.14"
+  },
+  "_comment_dependencies": {
+    "typescript": "held at 6.x: TypeScript 7 waits for typescript-eslint (peer <6.1.0) and @volar/typescript, used by vue-tsc (peer <7), to accept it (note typescript@7.0.2)",
+    "@types/node": "held at 24.x on purpose: the types follow the Node runtime, and the project runs Node 24 (.nvmrc, engines, CI, Netlify) (note @types/node@26.6.11)",
+    "eslint-plugin-vue": "10.12.1 lists @stylistic/eslint-plugin ^2-^5 as an optional peer while 6.x is installed: accepted, its Stylistic-based vue/* rules are not used here; 10.13.0 adds ^6 (note eslint-plugin-vue@10.13.0)",
+    "minimatch": "transitive, advisory GHSA-g3hv-75wg-m249 (lint tooling only): minimatch 10 stays through @typescript-eslint/typescript-estree 8.72.2 until @vue/eslint-config-typescript or @intlify/unplugin-vue-i18n ask for 8.74+ (note minimatch@11.0.1)"
   },
   "allowScripts": {
     "esbuild": false,

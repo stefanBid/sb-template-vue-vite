@@ -54,8 +54,7 @@ const isActiveRoute = (r: RouteItem) => {
 const activeRoutePath = computed(() => props.routes.find(r => isActiveRoute(r))?.path ?? null)
 
 const currentLang = computed(() =>
-  props.langs.find(l => l.code === props.selectedLangId) ?? props.langs[0] ?? null,
-)
+  props.langs.find(l => l.code === props.selectedLangId) ?? props.langs[0] ?? null)
 
 // Events
 const onSelectRoute = (r: RouteItem) => {
