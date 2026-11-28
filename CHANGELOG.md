@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/stefanBid/sb-template-vue-vite/compare/v1.1.0...v1.1.1) (2026-11-28)
+
+
+### Bug Fixes
+
+* make the clear script remove every local output ([#10](https://github.com/stefanBid/sb-template-vue-vite/issues/10)) ([a4c8b01](https://github.com/stefanBid/sb-template-vue-vite/commit/a4c8b0125168850c523ef4773485e51cb0670b6f))
+
 ## [1.1.0](https://github.com/stefanBid/sb-template-vue-vite/compare/v1.0.0...v1.1.0) (2026-11-27)
 
 
